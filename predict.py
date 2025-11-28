@@ -240,7 +240,6 @@ if st.button("Compute 24h Features & Predict"):
 
             st.markdown("### Prediction Result")
             st.write(f"**Sepsis probability (model output):** {prob:.3f}")
-            st.write(f"**Threshold used:** {best_thr:.3f}")
 
             if pred == 1:
                 st.error("High risk of sepsis (Positive flag)")
