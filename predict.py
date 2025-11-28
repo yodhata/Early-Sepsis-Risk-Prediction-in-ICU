@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 from datetime import datetime, timedelta
+from pathlib import Path
 
 #Konfigurasi halaman Streamlit
 st.set_page_config(
@@ -11,8 +12,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+BASE_DIR = Path(__file__).resolve().parent
+artifact_path = BASE_DIR / "data" / "sepsis_xgb_artifact.pkl"
+
 #load artifact
-artifact = joblib.load("/Users/yodhapranata/Documents/UT/BootCamp/TUGAS/2.Final Project/Streamlit/data/sepsis_xgb_artifact.pkl")
+artifact = joblib.load(artifact_path)
 model = artifact['model']
 features = artifact['features']
 best_thr= artifact['best_thr']
